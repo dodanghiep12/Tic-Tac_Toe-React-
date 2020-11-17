@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 
-class WelcomComponent extends Component {
+class WelcomeComponent extends Component {
     render() {
         return(
             <div className="welcome-page">
@@ -13,4 +13,4 @@ class WelcomComponent extends Component {
     }
 }
 
-export default WelcomComponent
+export default WelcomeComponent
