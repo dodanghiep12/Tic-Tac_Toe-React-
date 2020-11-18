@@ -8,10 +8,10 @@ class InstructorApp extends Component {
         return (
             <Router>
                 <>
-                <h1>Games</h1>
+                <h1>Tic-Tac-Toe</h1>
                 <Switch>
-                    <Route path="/" exact component={WelcomComponent} />
-                    <Route path="/tic-tac-toe" component={Gameplay} />
+                    <Route path="/" exact component = {WelcomComponent} />
+                    <Route path="/tic-tac-toe" exact component = {Gameplay} />
                 </Switch>
                 </>
             </Router>

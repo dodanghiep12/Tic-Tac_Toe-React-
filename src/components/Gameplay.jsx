@@ -1,14 +1,7 @@
 import React, {Component} from 'react'
-import { unstable_concurrentAct } from 'react-dom/test-utils'
 import Board from './Board'
 
-// function Gameplay() {
-//     return (
-//         <div>
-//             <h1>What's up</h1>
-//         </div>
-//     )
-// }
+
 class Gameplay extends Component {
     constructor (props) {
         super(props)
@@ -19,6 +12,13 @@ class Gameplay extends Component {
                 { squares: Array(9).fill(null) }
             ]
         }
+    }
+
+    jumpTo(step){
+        this.setState({
+            stepNumber: step,
+            xIsNext: (step%2) === 0
+        })
     }
 
     handleClick(i){
@@ -44,7 +44,7 @@ class Gameplay extends Component {
         const current = history[this.state.stepNumber]
         const winner = calculateWinner(current.squares)
         const moves = history.map((step, move) => {
-            const desc = move ? 'Go to #' + move: 'Start the Game'
+            const desc = move ? 'Go to #' + move : 'Start the Game'
             return (
                 <li key = {move}>
                     <button onClick = {() => {this.jumpTo(move)}}>
@@ -65,6 +65,10 @@ class Gameplay extends Component {
                 <div className="game-board">
                     <Board onClick={(i) => this.handleClick(i)}
                     squares={current.squares} />
+                </div>
+                <div className="game-info">
+                <div>{status}</div>
+                <ul>{moves}</ul>
                 </div>
             </div>
         )
@@ -92,13 +96,3 @@ function calculateWinner(squares) {
 
 export default Gameplay
 
-// import React, {Component} from 'react'
-// export default class Gameplay extends Component {
-//     render() {
-//         return(
-//             <div>
-//                 <h1>Hiep</h1>
-//             </div>
-//         )
-//     }
-// }
